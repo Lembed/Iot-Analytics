@@ -1,0 +1,2 @@
+url: 'http://localhost:8082'
+verbose: true # only used in dev

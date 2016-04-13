@@ -1,0 +1,44 @@
+﻿{
+	"name": "iot-analytics",
+	"version": "0.0.1",
+	"author": " ",
+	"description": "iot analytics",
+	"main": "./app.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Lembed"
+	},
+	"keywords": [
+		"iot ",
+		"analytics"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"async": "^2.0.0-rc.3",
+		"body-parser": "^1.15.0",
+		"config": "^1.20.1",
+		"connect-flash": "^0.1.1",
+		"cookie-parser": "^1.4.1",
+		"cookie-session": "^2.0.0-alpha.1",
+		"ejs": "^2.4.1",
+		"errorhandler": "^1.4.3",
+		"express": "^4.13.4",
+		"express-partials": "^0.3.0",
+		"js-yaml": "^3.5.5",
+		"method-override": "^2.3.5",
+		"moment": "^2.12.0",
+		"mongoose": "^4.4.12",
+		"mongoose-lifecycle": "^1.0.0",
+		"nodemailer": "^2.3.2",
+		"semver": "^5.1.0",
+		"socket.io": "^1.4.5"
+	},
+	"engines": {
+		"node": "5.6.x",
+		"npm": "1.4.x"
+	},
+	"scripts": {
+		"test": "node_modules/.bin/mocha test/lib/",
+		"start": "node app.js"
+	}
+}
