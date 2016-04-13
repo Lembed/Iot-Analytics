@@ -1,2 +1,2 @@
-# Iot-Analystics
-analystics app for iot application
+# Iot-Analytics
+analytics app for iot application
