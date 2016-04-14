@@ -16,17 +16,7 @@ var app = module.exports = express();
 app.use(partials());
 app.use(flash());
 app.use(function locals(req, res, next) {
-  res.locals.route = app.route;
   res.locals.addedCss = [];
-  res.locals.renderCssTags = function(all) {
-    if (all != undefined) {
-      return all.map(function(css) {
-        return '<link rel="stylesheet" href="' + app.route + '/stylesheets/' + css + '">';
-      }).join('\n ');
-    } else {
-      return '';
-    }
-  };
   res.locals.moment = moment;
   next();
 });
@@ -45,6 +35,30 @@ if ('development' == env) {
 }
 
 app.locals.version = moduleInfo.version;
+
+// Routes
+app.get('/login', function(req, res) {
+  res.render('login');
+});
+app.get('/register', function(req, res) {
+  res.render('register');
+});
+
+app.get('/forgot', function(req, res) {
+  res.render('forgot');
+});
+app.post('/forgot', function(req, res) {
+  console.log(req);
+});
+
+
+app.get('/reset', function(req, res) {
+  res.render('reset');
+});
+
+app.post('/reset', function(req, res) {
+  console.log(req);
+});
 
 
 if (!module.parent) {

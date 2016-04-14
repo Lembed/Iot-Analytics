@@ -1,7 +1,6 @@
 "use strict";
 
 var http = require('http');
-var http = require('http');
 var url = require('url');
 var express = require('express');
 var config = require('config');
@@ -20,6 +19,8 @@ var server = http.createServer(app);
 var apiApp = require('./app/api/app');
 var dashboardApp = require('./app/dashboard/app');
 
+var db = require('./models');
+
 // middleware
 app.use(bodyParser.urlencoded({
     extended: true
@@ -32,9 +33,24 @@ app.use(cookieSession({
     keys: ['FZ5HEE5YHD3E566756234C45BY4DSFZ4', 'FZ5HEE5YHD3E564756234C45BY4DSFZ4']
 }))
 
+// load plugins
+config.plugins.forEach(function(pluginName) {
+    var plugin = require(pluginName);
+    if (typeof plugin.register !== 'function') return;
+    console.log('loading plugin %s on app', pluginName);
+    plugin.register({
+        app: app,
+        api: apiApp, // mounted into app, but required for events
+        dashboard: dashboardApp, // mounted into app, but required for events
+        io: io,
+        config: config,
+        db: db
+    });
+});
 
 var env = process.env.NODE_ENV || 'development';
 if ('development' == env) {
+    if (config.verbose) db.set('debug', true);
     app.use(express.static(__dirname + '/public'));
     app.use(errorhandler({
         dumpExceptions: true,
@@ -97,6 +113,7 @@ if (!module.parent) {
     var port = process.env.PORT || port;
     var host = process.env.HOST || serverUrl.hostname;
     server.listen(port, function() {
+        // db.connect();
         console.log("Express server listening on host %s, port %d in %s mode", host, port, app.settings.env);
     });
     server.on('error', function(e) {});

@@ -1,2 +1,34 @@
-url: 'http://localhost:8082'
-verbose: true # only used in dev
+url: 'http://localhost:3002'
+
+mongodb:
+  server:   localhost
+  database: iot
+  user:     root 
+  password:
+  connectionString:       # alternative to setting server, database, user and password separately
+
+plugins:
+  - ./plugins/basicAuth
+  - ./plugins/email
+  #- ./plugins/httpOptions
+
+email:
+  method:      SMTP  # possible methods are SMTP, SES, or Sendmail
+  transport:         # see https://github.com/andris9/nodemailer for transport options
+    service:   Gmail # see https://github.com/andris9/Nodemailer/blob/master/lib/wellknown.js for well-known services
+    auth:            
+      user:          # The email account username, e.g. 'username@gmail.com'
+      pass:          # The email account password, e.G. 'password'
+  message:           
+    from:    admin@localhost        # The message sender, e.g. 'Fred Foo <foo@blurdybloop.com>'
+    to:      admin@localhost        # The message recipient, e.g. 'bar@blurdybloop.com, baz@blurdybloop.com'
+  # The email plugin also uses the main `url` param for hyperlinks in the sent emails
+
+basicAuth:
+  username:    admin
+  password:    password
+
+verbose: true
+# only used in dev
+
+autoStartMonitor: true

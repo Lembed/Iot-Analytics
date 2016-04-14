@@ -20,6 +20,8 @@ if ('development' == env) {
   app.use(errorhandler());
 }
 
+require('./routes/skeleton')(app);
+
 // route list
 app.get('/', function(req, res) {
   var routes = [];

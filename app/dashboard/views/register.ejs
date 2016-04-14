@@ -1,0 +1,28 @@
+
+	<div id="login-form" style="height:230px;">
+		<div id="login-left">
+			<div id="login-logo" style="margin-top:89px;"></div>
+		</div>
+		<div style="float:left; overflow:auto;">
+			<form method="POST">
+                <div>
+                    <input autocapitalize="off" autocomplete="off" type="text" name="full_name" placeholder="Full Name" data-localize="placeholder.full-name"/>
+                </div>
+                <div>
+                    <input autocapitalize="off" autocomplete="off" type="text" name="email" placeholder="Email" data-localize="placeholder.email"/>
+                </div>
+				<div>
+					<input type="text" autocapitalize="off" autocomplete="off" name="username" placeholder="Username" data-localize="placeholder.username"/>
+				</div>
+				<div>
+					<input name="password" type="password" autocomplete="off" placeholder="Password" data-localize="placeholder.password"/>
+				</div>
+				<div>
+					<input type="hidden" value="_csrf" name="_csrf" />
+                    <input type="hidden" value="en" name="lang" id="form-lang" />
+					<input id="login-button" value="Create account" type="submit" data-localize="setup.button"/>
+				</div>
+			</form>
+		</div>
+	</div>
+	
