@@ -3,19 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>iot analytics</title>
+    <link rel="shortcut icon" href="favicon.ico"> 
     <link rel="stylesheet" href="stylesheets/bootstrap.css">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <link href='stylesheets/pre-login/main.css' rel='stylesheet' type='text/css'>
-    <link href='stylesheets/main.css' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="favicon.ico">    
-    <script src="javascripts/dom/jquery/jquery-1.8.3.min.js"></script>
+    <link rel='stylesheet' href='stylesheets/main.css'>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.min.css">
+    <script language="javascript" type="text/javascript" src="javascripts/utils/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/nvd3/build/nv.d3.min.js"></script>
+
   </head>
   <body>
     <div class="container">
       <div class="navbar">
         <div class="navbar-inner">
           <div class="container">
-            <a class="brand" href="/">iot analytics</a>
+            <a class="brand" href="/dashboard">Dashboard</a>
             <ul class="nav pull-left">
               <li id="new_events"><a href="events?highlightFrom=<%= Date.now() %>"></a></li> 
             </ul>

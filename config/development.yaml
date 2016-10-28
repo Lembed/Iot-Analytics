@@ -1,4 +1,4 @@
-url: 'http://localhost:3002'
+url: 'http://localhost:3000'
 
 mongodb:
   server:   localhost
@@ -8,8 +8,8 @@ mongodb:
   connectionString:       # alternative to setting server, database, user and password separately
 
 plugins:
-  - ./plugins/basicAuth
-  - ./plugins/email
+  - ./app/plugins/basicAuth
+  - ./app/plugins/email
   #- ./plugins/httpOptions
 
 email:
